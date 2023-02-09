@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: api-video-processing
+service: api-scenes
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -23,6 +23,8 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: python3.9
+  layers:
+    - arn:aws:lambda:us-east-1:436594502614:layer:ffmpeg-video-layer:2  
 
 # you can overwrite defaults here
 #  stage: dev
@@ -59,9 +61,11 @@ package:
 #    - include-me-dir/**
   exclude:
     - .venv/**
+    - node_modules/**
+    - .serverless/**
 
 functions:
-  scenes-extraction:
+  extraction:
     handler: handler.scenes_extraction
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
@@ -114,3 +118,11 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+
+	
+plugins:
+  - serverless-python-requirements
+ 
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux

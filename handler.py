@@ -21,6 +21,9 @@ def get_scene_list(video_path, threshold=27.0, min_scene_len=15) -> list:
 
 
 def scenes_extraction(event, context):
+    print('bbbbbbooooooooooooorrraaa, carai!!!!')
+    print(get_scene_list('teste.mp4'))
+
     body = {
         "message": "Go Serverless v1.0! Your function executed successfully! teste",
         "input": event
