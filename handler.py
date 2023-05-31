@@ -21,7 +21,7 @@ def get_scene_list(video_path, threshold=27.0, min_scene_len=15) -> list:
 
 
 def scenes_extraction(event, context):
-    print('bbbbbbooooooooooooorrraaa, carai!!!!')
+    print('bbbbbbooooooooooooorrraaa!!!!')
     print(get_scene_list('teste.mp4'))
 
     body = {
